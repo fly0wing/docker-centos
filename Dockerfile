@@ -21,17 +21,13 @@ RUN yum -y install \
     openssh-server \
     openssh-clients \
     python-pip \
-    tar
-
-
+    tar \
+    wget
 
 RUN ssh-keygen -q -N "" -t dsa -f /etc/ssh/ssh_host_dsa_key && ssh-keygen -q -N "" -t rsa -f /etc/ssh/ssh_host_rsa_key && sed -i "s/#UsePrivilegeSeparation.*/UsePrivilegeSeparation no/g" /etc/ssh/sshd_config && sed -i "s/UsePAM.*/UsePAM no/g" /etc/ssh/sshd_config
 
 # Add scripts
 RUN rpm -i http://dl.fedoraproject.org/pub/epel/6/x86_64/pwgen-2.06-5.el6.x86_64.rpm
-
-# wget
-RUN yum -y install wget
 
 # Clean up
 RUN yum clean all
