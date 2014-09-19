@@ -20,7 +20,8 @@ RUN yum -y install \
     openssh \
     openssh-server \
     openssh-clients \
-    python-pip
+    python-pip \
+    tar
 
 
 
